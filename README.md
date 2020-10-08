@@ -3,6 +3,7 @@
 tested version: **20.39.17972**
 
 ```
+#install shared objects
 mkdir -p ~/intel && cd ~/intel
 wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-gmmlib_20.2.5_amd64.deb
 wget https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.5064/intel-igc-core_1.0.5064_amd64.deb
@@ -12,4 +13,8 @@ wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/inte
 wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-level-zero-gpu_1.0.17972_amd64.deb
 sudo dpkg -i *.deb
 sudo ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so
+
+#install headers
+git clone https://github.com/KhronosGroup/OpenCL-Headers.git
+sudo cp OpenCL-Headers/CL/*.h /usr/include/CL
 ```
