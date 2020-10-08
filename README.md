@@ -11,4 +11,5 @@ wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/inte
 wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-ocloc_20.39.17972_amd64.deb
 wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-level-zero-gpu_1.0.17972_amd64.deb
 sudo dpkg -i *.deb
+sudo ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so
 ```
