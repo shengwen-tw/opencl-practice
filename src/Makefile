@@ -1,0 +1,13 @@
+EXECUTABLE=opencl_practice
+
+CFLAGS=
+CFLAGS+=-D CL_TARGET_OPENCL_VERSION=220
+
+LDFLAGS=
+LDFLAGS+= -lOpenCL
+
+all:
+	gcc -o $(EXECUTABLE) $(CFLAGS) main.c $(LDFLAGS)
+
+clean:
+	rm -f $(EXECUTABLE)
