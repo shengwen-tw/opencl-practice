@@ -1,6 +1,6 @@
 ## OpenCL 2.1 Installation (Intel)
 
-The following commands are tested on my laptop with Intel i5-6200 CPU and integrated HD Graphics 520 GPU.
+The following commands have been tested on my laptop with Intel i5-6200 CPU and integrated HD Graphics 520 GPU.
 
 The newest version of intel compute runtime library failed to work on my machine, therefore i'm using the older version released in 2019.
 
