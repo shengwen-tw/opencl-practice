@@ -1,16 +1,13 @@
 ## OpenCL 2.1 Installation (Intel)
 
-tested version: **20.39.17972**
-
 ```
 #install shared objects
 mkdir -p ~/intel && cd ~/intel
-wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-gmmlib_20.2.5_amd64.deb
-wget https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.5064/intel-igc-core_1.0.5064_amd64.deb
-wget https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.5064/intel-igc-opencl_1.0.5064_amd64.deb
-wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-opencl_20.39.17972_amd64.deb
-wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-ocloc_20.39.17972_amd64.deb
-wget https://github.com/intel/compute-runtime/releases/download/20.39.17972/intel-level-zero-gpu_1.0.17972_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/19.07.12410/intel-gmmlib_18.4.1_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/19.07.12410/intel-igc-core_18.50.1270_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/19.07.12410/intel-igc-opencl_18.50.1270_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/19.07.12410/intel-opencl_19.07.12410_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/19.07.12410/intel-ocloc_19.07.12410_amd64.deb
 sudo dpkg -i *.deb
 sudo ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so
 
