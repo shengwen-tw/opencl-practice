@@ -6,8 +6,11 @@ CFLAGS+=-D CL_TARGET_OPENCL_VERSION=210
 LDFLAGS=
 LDFLAGS+= -lOpenCL
 
-all:
-	gcc -o $(EXECUTABLE) $(CFLAGS) main.c $(LDFLAGS)
+SRC=
+SRC+=main.c
+
+$(EXECUTABLE): 
+	gcc -o $(EXECUTABLE) $(CFLAGS) $(SRC) $(LDFLAGS)
 
 clean:
 	rm -f $(EXECUTABLE)
