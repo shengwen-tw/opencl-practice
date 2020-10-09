@@ -7,7 +7,7 @@
 #define CHECK_ERROR(status, error_message) \
 	check_error(status, __FILE__, __LINE__, error_message)
 
-#define VECTOR_LENGTH 1024
+#define VECTOR_LENGTH 100000000 //XXX: this will took your machine about 1.1GB of memory
 
 double time(void)
 {
@@ -147,7 +147,7 @@ int main(void)
 	err |= clSetKernelArg(kernel_vadd, 3, sizeof(unsigned int), &count);
 	CHECK_ERROR(err, "bad return value from clSetKernelArg!");
 
-	printf("start executing the program...\n");
+	printf("start executing the program with gpu device...\n");
 
 	/* start the time for recording the execution time (computation and memory transer) */
 	double start_time = time();
@@ -173,11 +173,26 @@ int main(void)
 	double end_time = time();
 
 	/* print the time cost */
-	printf("finished. it took %lf seconds to run the calculation.\n-\n", end_time - start_time);
+	printf("finished. it took %lf seconds to run the calculation "
+	       "using gpu device.\n-\n", end_time - start_time);
+
+	printf("start executing the same calculation with single core cpu...\n");
+
+	/* calcuate the run time if using cpu to do the calculation */
+	float expected_val;
+	start_time = time();
+	for(i = 0; i < count; i++) {
+		expected_val = vec_a[i] + vec_b[i];
+	}
+	end_time = time();
+
+	printf("finished. it took %lf seconds to run the calculation "
+	       "using single core cpu.\n-\n", end_time - start_time);
 
 	/* test the result */
-	float expected_val;
+	printf("start testing if gpu's calculation is correct\n");
 	float deviation;
+	int error_calculations = 0;
 	for(i = 0; i < count; i++) {
 		expected_val = vec_a[i] + vec_b[i];
 
@@ -185,11 +200,14 @@ int main(void)
 		deviation = expected_val - vec_c[i];
 
 		if(fabs(deviation) > 0.001) {
+			error_calculations++;
 			printf("#%d: the value calculated by gpu is far from"
 			       " what we expected!\n", i);
 		}
 		
 	}
+	printf("%d of %d's calculation are confirmed to be correct\n-\n",
+	       count - error_calculations, count);
 
 	/* print first 10 datas */
 	printf("print first 10 datas:\n");

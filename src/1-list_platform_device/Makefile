@@ -9,8 +9,8 @@ LDFLAGS+= -lOpenCL
 SRC=
 SRC+=main.c
 
-$(EXECUTABLE): 
-	gcc -o $(EXECUTABLE) $(CFLAGS) $(SRC) $(LDFLAGS)
+$(EXECUTABLE): $(SRC)
+	gcc -o $(EXECUTABLE) $(CFLAGS) $^ $(LDFLAGS)
 
 clean:
 	rm -f $(EXECUTABLE)
