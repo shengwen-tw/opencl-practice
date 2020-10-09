@@ -19,3 +19,9 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so
 git clone https://github.com/KhronosGroup/OpenCL-Headers.git
 sudo cp OpenCL-Headers/CL/*.h /usr/include/CL
 ```
+
+You can use ``clinfo`` command to check if the installation succeeded.
+
+```
+sudo apt install clinfo
+```
